@@ -26,7 +26,7 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        $article = Article::create($request->only(['writer', 'topic']));
+        $article = Article::create($request->all());
         return new ArticleResource($article);
     }
 
@@ -50,7 +50,7 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-        $article->update($request->only(['writer', 'topic']));
+        $article->update($request->all());
         return new ArticleResource($article);
     }
 
